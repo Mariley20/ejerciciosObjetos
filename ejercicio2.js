@@ -10,10 +10,11 @@
   	var anio = fecha.getFullYear();
   	var mesActual = fecha.getMonth();
   	var diaActual = fecha.getDate();
-  	if(dia >= diaActual && mes >= mesActual){
-  		var res = anio - anionacimiento;
+  	var res;
+  	if(mes >= mesActual+1){
+  		res = (anio - anionacimiento)-1;
   	}else{
-  		res = (anio - anionacimiento) - 1;
+  		res = (anio - anionacimiento);
   	}
   	return "La edad actual de "+ this.nombre + " es "+ res;
   }
@@ -25,7 +26,7 @@ describe('Prueba 1', function(){
     assert.equal('La edad actual de Su es 25', calcularEdad1.edad())
   });
   it('calcularEdad-2', function(){
-    calcularEdad2 = new calcularEdad('Mariley',6,9,1995);
-    assert.equal('La edad actual de Mariley es 21', calcularEdad2.edad())
+    calcularEdad2 = new calcularEdad('Mariley',6,4,1995);
+    assert.equal('La edad actual de Mariley es 22', calcularEdad2.edad())
   });
 });
